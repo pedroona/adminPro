@@ -20,7 +20,7 @@ import { PAGES_ROUTING } from './pages.routes';
   imports: [
       CommonModule,
       SharedModule,
-      PAGES_ROUTING,
+      PAGES_ROUTING
     ],
   exports: [
       DashboardComponent,
