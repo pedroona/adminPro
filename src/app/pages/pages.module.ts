@@ -6,21 +6,31 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 
+import { FormsModule } from '@angular/forms';
+
+
 // Módulos
 import { SharedModule } from '../shared/shared.module';
+
+// Rutas
 import { PAGES_ROUTING } from './pages.routes';
+
+// Temporal
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Graficas1Component
+    Graficas1Component,
+    IncrementadorComponent
   ],
   imports: [
       CommonModule,
       SharedModule,
-      PAGES_ROUTING
+      PAGES_ROUTING,
+      FormsModule
     ],
   exports: [
       DashboardComponent,
