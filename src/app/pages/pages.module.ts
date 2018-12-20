@@ -24,6 +24,7 @@ import { PAGES_ROUTING } from './pages.routes';
 
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { AccountSettingsComponent } from './acount-setings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
     ProgressComponent,
     Graficas1Component,
     IncrementadorComponent,
-    GraficaDonutComponent
+    GraficaDonutComponent,
+    AccountSettingsComponent
   ],
   imports: [
       CommonModule,
