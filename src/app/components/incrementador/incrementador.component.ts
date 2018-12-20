@@ -1,4 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -6,41 +14,43 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styles: []
 })
 export class IncrementadorComponent implements OnInit {
-
   @Input('nombre') leyenda: string = 'Leyenda';
   @Input() progreso: number = 50;
 
   @Output('actualizaValor') cambioValor: EventEmitter<number>;
 
+  // El parametro usado para referenciar al elemento es el #inputProgress empleado en el html
+  @ViewChild('inputProgress') inputProgress: ElementRef;
+
   constructor() {
     this.cambioValor = new EventEmitter();
-   }
-
-  ngOnInit() {
   }
 
+  ngOnInit() {}
+
   incrementar() {
-    if ( this.progreso >= 100 ) {
+    if (this.progreso >= 100) {
       return;
     }
-    this.cambioValor.emit(this.progreso += 5);
+    this.cambioValor.emit((this.progreso += 5));
   }
 
   decrementar() {
-    if ( this.progreso <= 0 ) {
+    if (this.progreso <= 0) {
       return;
     }
-    this.cambioValor.emit(this.progreso -= 5);
+    this.cambioValor.emit((this.progreso -= 5));
   }
 
   onChanges(nuevoValor: number) {
-    if ( nuevoValor >= 100) {
+    if (nuevoValor >= 100) {
       this.progreso = 100;
-    } else if ( nuevoValor >= 0 ) {
+    } else if (nuevoValor <= 0) {
       this.progreso = 0;
+    } else {
+      this.progreso = nuevoValor;
     }
-    console.log(this.progreso);
+    this.inputProgress.nativeElement.value = this.progreso;
     this.cambioValor.emit(this.progreso);
   }
-
 }

@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Ng2-Charts
+import { ChartsModule } from 'ng2-charts';
+
+// Componentes
+import { GraficaDonutComponent } from '../components/grafica-donut/grafica-donut.component';
+
+
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -24,13 +31,15 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    IncrementadorComponent
+    IncrementadorComponent,
+    GraficaDonutComponent
   ],
   imports: [
       CommonModule,
       SharedModule,
       PAGES_ROUTING,
-      FormsModule
+      FormsModule,
+      ChartsModule
     ],
   exports: [
       DashboardComponent,
